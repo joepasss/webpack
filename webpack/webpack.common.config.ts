@@ -1,12 +1,12 @@
 import path from "path";
 import { Configuration } from "webpack";
 
-const config: Configuration = {
+const commonConfig: Configuration = {
   entry: "./src/index.ts",
   output: {
-    path: path.resolve(__dirname, "./dist"),
+    path: path.resolve(__dirname, "../dist"),
     filename: "main.js",
   },
 };
 
-export default config;
+export default commonConfig;
