@@ -6,6 +6,8 @@
     "@types/webpack": "^5.28.2",
     "@types/webpack-dev-server": "^4.7.2",
     "bun-types": "latest",
+    "esbuild": "^0.19.3",
+    "esbuild-register": "^3.5.0",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
