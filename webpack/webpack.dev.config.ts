@@ -8,7 +8,7 @@ interface Configuration extends WebpackConfiguration {
   devServer?: WebpackDevServerConfiguration;
 }
 
-const prodConfig: Configuration = merge(commonConfig, {
+const devConfig: Configuration = merge(commonConfig, {
   mode: "development",
   devtool: "eval-cheap-module-source-map",
   devServer: {
@@ -29,10 +29,20 @@ const prodConfig: Configuration = merge(commonConfig, {
     rules: [
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: [
+          "style-loader",
+          {
+            options: {
+              modules: {
+                localIdentName: "[local]--[md4:hash:7]",
+              },
+            },
+          },
+          "css-loader",
+        ],
       },
     ],
   },
 });
 
-export default prodConfig;
+export default devConfig;
