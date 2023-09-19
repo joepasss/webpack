@@ -6,10 +6,13 @@ import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 
 const prodConfig: Configuration = merge(commonConfig, {
   mode: "production",
+  output: {
+    filename: "js/[name].[contenthash:12].js",
+  },
   optimization: {
     minimize: true,
     minimizer: [
-      `...`, // 기존 웹팩에서 제공하는 minimize 옵션을 사용하겠다는 뜻
+      `...`,
       new CssMinimizerPlugin({
         minimizerOptions: {
           preset: [
@@ -30,7 +33,11 @@ const prodConfig: Configuration = merge(commonConfig, {
       },
     ],
   },
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "cs/[name].[contenthash:12].css",
+    }),
+  ],
 });
 
 export default prodConfig;
