@@ -41,6 +41,10 @@ const devConfig: Configuration = merge(commonConfig, {
         },
       },
       {
+        test: /\.(css|scss)$/,
+        loader: "postcss-loader",
+      },
+      {
         test: /\.scss$/,
         loader: "sass-loader",
       },
