@@ -39,7 +39,7 @@ const prodConfig: Configuration = merge(commonConfig, {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "cs/[name].[contenthash:12].css",
+      filename: "css/[name].[contenthash:12].css",
     }),
   ],
 });
