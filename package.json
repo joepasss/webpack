@@ -3,6 +3,7 @@
   "module": "index.ts",
   "type": "module",
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^5.0.0",
     "@types/webpack": "^5.28.2",
     "@types/webpack-dev-server": "^4.7.2",
     "autoprefixer": "^10.4.15",
