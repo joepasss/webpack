@@ -28,17 +28,21 @@ const devConfig: Configuration = merge(commonConfig, {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.(css|scss)$/,
         loader: "style-loader",
       },
       {
-        test: /\.css$/,
+        test: /\.(css|scss)$/,
         loader: "css-loader",
         options: {
           modules: {
             localIdentName: "[local]--[md4:hash:7]",
           },
         },
+      },
+      {
+        test: /\.scss$/,
+        loader: "sass-loader",
       },
     ],
   },
