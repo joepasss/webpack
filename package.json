@@ -6,6 +6,7 @@
     "@types/webpack": "^5.28.2",
     "@types/webpack-dev-server": "^4.7.2",
     "bun-types": "latest",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.8.1",
     "css-minimizer-webpack-plugin": "^5.0.1",
     "esbuild": "^0.19.3",
