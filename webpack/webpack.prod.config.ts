@@ -28,8 +28,12 @@ const prodConfig: Configuration = merge(commonConfig, {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.(css|scss)$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
+      },
+      {
+        test: /\.scss$/,
+        use: ["sass-loader"],
       },
     ],
   },
