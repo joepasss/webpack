@@ -25,6 +25,14 @@ const prodConfig: Configuration = merge(commonConfig, {
     },
     liveReload: true,
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
+  },
 });
 
 export default prodConfig;
