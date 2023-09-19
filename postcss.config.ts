@@ -1,3 +1,8 @@
+import purgecss from "@fullhuman/postcss-purgecss";
+
 module.exports = {
-  plugins: [],
+  plugins: [
+    require("autoprefixer"),
+    purgecss({ content: ["./src/**/*.html"] }),
+  ],
 };

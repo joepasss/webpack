@@ -3,8 +3,10 @@
   "module": "index.ts",
   "type": "module",
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^5.0.0",
     "@types/webpack": "^5.28.2",
     "@types/webpack-dev-server": "^4.7.2",
+    "autoprefixer": "^10.4.15",
     "bun-types": "latest",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.8.1",
@@ -27,6 +29,10 @@
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
   "scripts": {
     "build": "webpack --config webpack/webpack.prod.config.ts",
     "dev": "webpack serve --config webpack/webpack.dev.config.ts"
