@@ -14,6 +14,15 @@ const commonConfig: Configuration = {
         test: /\.html$/,
         use: ["html-loader"],
       },
+      {
+        test: /\.tsx?$/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env", "@babel/preset-typescript"],
+          },
+        },
+      },
     ],
   },
   plugins: [
