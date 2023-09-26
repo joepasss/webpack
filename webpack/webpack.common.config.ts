@@ -4,7 +4,7 @@ import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 
 const commonConfig: Configuration = {
-  entry: "./src/index.ts",
+  entry: "./src/ts/index.ts",
   output: {
     path: path.resolve(__dirname, "../dist"),
   },

@@ -6,7 +6,7 @@ import {
   newTodoEventHandler,
   removeTodoEventHandler,
   toggleTodoEventListener,
-} from "./eventHandlers";
+} from "./eventHandlers.ts";
 import "../styles/index.scss";
 
 window.addEventListener("load", onLoadEventHandler);
