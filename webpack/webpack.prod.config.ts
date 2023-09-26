@@ -35,6 +35,18 @@ const prodConfig: Configuration = merge(commonConfig, {
         test: /\.scss$/,
         use: ["sass-loader"],
       },
+      {
+        test: /\.(png|jpg|svg)$/,
+        type: "asset",
+        parser: {
+          dataUrlCondition: {
+            maxSize: 1,
+          },
+        },
+        generator: {
+          filename: "images/[name].[contenthash:12][ext]",
+        },
+      },
     ],
   },
   plugins: [
