@@ -10,6 +10,7 @@
     "@types/node": "^20.7.0",
     "@types/webpack": "^5.28.3",
     "@types/webpack-dev-server": "^4.7.2",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.8.1",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.3",
