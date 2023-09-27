@@ -1,10 +1,11 @@
 import path from "path";
 import { Configuration } from "webpack";
+import HtmlWebpackPlugin from "html-webpack-plugin";
 
 const commonConfig: Configuration = {
   entry: "./src/index.ts",
   output: {
-    path: path.resolve(__dirname, "./dist"),
+    path: path.resolve(__dirname, "../dist"),
     filename: "main.js",
   },
   resolve: {
@@ -16,8 +17,18 @@ const commonConfig: Configuration = {
         test: /\.tsx?$/,
         loader: "ts-loader",
       },
+      {
+        test: /\.html$/,
+        loader: "html-loader",
+      },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "src/index.html",
+      filename: "index.html",
+    }),
+  ],
 };
 
 export default commonConfig;
