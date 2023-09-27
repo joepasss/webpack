@@ -6,7 +6,8 @@ import { CleanWebpackPlugin } from "clean-webpack-plugin";
 const commonConfig: Configuration = {
   entry: "./src/index.ts",
   output: {
-    path: path.resolve(__dirname, "../dist"),
+    path: path.resolve(__dirname, "./dist"),
+    filename: "main.js",
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
