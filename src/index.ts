@@ -1,3 +1,4 @@
+import "./style.scss";
 import initialData from "./data.json";
 import { dataInterface } from "./types";
 
