@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+div.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  img.header-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+
+  div.todolist-wrapper {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+    input.new-todo {
+      margin: 0;
+      padding: 0.5rem;
+      width: 100%;
+      font-size: 1.6rem;
+      border: none;
+      border-bottom: 2px solid black;
+      outline: none;
+      margin-bottom: 1rem;
+    }
+
+    ul.todo-list {
+      width: 100%;
+
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        gap: 0.5rem;
+        padding-bottom: 0.5rem;
+
+        span.checkbox {
+          position: relative;
+          width: 25px;
+          height: 25px;
+          margin-left: 15px;
+          border: 1px solid black;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          img.check {
+            display: none;
+          }
+
+          input.real-checkbox {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            opacity: 0;
+            position: absolute;
+            left: -5px;
+          }
+        }
+
+        label {
+          flex: 1;
+          word-break: break-all;
+          white-space: pre-wrap;
+        }
+
+        label.completed {
+          color: rgb(122, 122, 122);
+        }
+
+        span.delete {
+          width: 25px;
+          height: 25px;
+          margin-right: 10px;
+          cursor: pointer;
+          background: url("../images/delete.svg") center no-repeat;
+          background-size: 90%;
+        }
+      }
+
+      li.completed {
+        span.checkbox {
+          img.check {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
