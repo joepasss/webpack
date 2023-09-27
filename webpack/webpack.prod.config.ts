@@ -2,11 +2,28 @@ import { Configuration } from "webpack";
 import commonConfig from "./webpack.common.config";
 import { merge } from "webpack-merge";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 
 const prodConfig: Configuration = merge(commonConfig, {
   mode: "production",
   output: {
     filename: "js/[name].[contenthash:12].js",
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      `...`,
+      new CssMinimizerPlugin({
+        minimizerOptions: {
+          preset: [
+            "default",
+            {
+              discardComments: { removeAll: true },
+            },
+          ],
+        },
+      }),
+    ],
   },
   module: {
     rules: [
