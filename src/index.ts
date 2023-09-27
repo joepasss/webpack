@@ -1,4 +1,4 @@
-import initialData from "./data.json" assert { type: "json" };
+import initialData from "./data.json";
 import { dataInterface } from "./types";
 
 let data = initialData;
