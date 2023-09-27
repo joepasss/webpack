@@ -4,6 +4,10 @@ import commonConfig from "./webpack.common.config";
 import { merge } from "webpack-merge";
 import path from "path";
 
+interface Configuration extends WebpackConfiguration {
+  devServer?: WebpackDevServerConfiguration;
+}
+
 const devConfig: Configuration = merge(commonConfig, {
   mode: "development",
   output: {
