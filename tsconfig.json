@@ -11,5 +11,5 @@
     "skipLibCheck": true,
     "outDir": "./dist"
   },
-  "include": ["src/**/*", "src/declare.d.ts"]
+  "include": ["src/**/*"]
 }
