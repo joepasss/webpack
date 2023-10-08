@@ -15,6 +15,8 @@
     "css-minimizer-webpack-plugin": "^5.0.1",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.3",
+    "image-minimizer-webpack-plugin": "^3.8.3",
+    "imagemin": "^8.0.1",
     "mini-css-extract-plugin": "^2.7.6",
     "sass": "^1.68.0",
     "sass-loader": "^13.3.2",
