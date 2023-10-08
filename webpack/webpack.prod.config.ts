@@ -3,6 +3,7 @@ import { Configuration } from "webpack";
 import commonConfig from "./webpack.common.config";
 import { merge } from "webpack-merge";
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
+import ImageMinimizerPlugin from "image-minimizer-webpack-plugin";
 
 const prodConfig: Configuration = merge(commonConfig, {
   mode: "production",
@@ -21,6 +22,21 @@ const prodConfig: Configuration = merge(commonConfig, {
               discardComments: { removeAll: true },
             },
           ],
+        },
+      }),
+      new ImageMinimizerPlugin({
+        minimizer: {
+          implementation: ImageMinimizerPlugin.imageminMinify,
+          options: {
+            plugins: [
+              [
+                "imagemin-mozjpeg",
+                "imagemin-pngquant",
+                "imagemin-gifsicle",
+                "imagemin-svgo",
+              ],
+            ],
+          },
         },
       }),
     ],
