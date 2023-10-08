@@ -1,6 +1,7 @@
 import "./style.scss";
 import initialData from "./data.json";
 import { dataInterface } from "./types";
+import CheckBoxImage from "../images/check.svg";
 
 let data = initialData;
 
@@ -37,7 +38,7 @@ const renderTodos = (todos: dataInterface[]) => {
     return `
       <li data-id="${todo.id}" class="${className}">
         <span class="checkbox">
-          <img class="check" src="../images/check.svg" />
+          <img class="check" src=${CheckBoxImage} />
           <input type="checkbox" class="real-checkbox" ${checked} />
         </span>
         <label class=${className}>${todo.text}</label>

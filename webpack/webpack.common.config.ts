@@ -22,6 +22,18 @@ const commonConfig: Configuration = {
         test: /\.html$/,
         loader: "html-loader",
       },
+      {
+        test: /\.(png|jpg|svg)$/,
+        type: "asset",
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024,
+          },
+        },
+        generator: {
+          filename: "./images/[name][ext]",
+        },
+      },
     ],
   },
   plugins: [
