@@ -3,6 +3,7 @@ import { Configuration as WebpackDevServerConfiguration } from "webpack-dev-serv
 import commonConfig from "./webpack.common.config";
 import { merge } from "webpack-merge";
 import path from "path";
+import { fileURLToPath } from "url";
 
 interface Configuration extends WebpackConfiguration {
   devServer?: WebpackDevServerConfiguration;
@@ -15,7 +16,7 @@ const devConfig: Configuration = merge(commonConfig, {
   },
   devServer: {
     port: 9000,
-    static: path.resolve(__dirname, "../dist"),
+    static: path.resolve(fileURLToPath(import.meta.url), "../../dist"),
     devMiddleware: {
       index: "index.html",
       writeToDisk: true,

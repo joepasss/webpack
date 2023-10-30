@@ -2,11 +2,12 @@ import path from "path";
 import { Configuration } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
+import { fileURLToPath } from "url";
 
 const commonConfig: Configuration = {
   entry: "./src/index.ts",
   output: {
-    path: path.resolve(__dirname, "../dist"),
+    path: path.resolve(fileURLToPath(import.meta.url), "../../dist"),
     filename: "main.js",
   },
   resolve: {
