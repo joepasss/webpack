@@ -1,5 +1,5 @@
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import { Configuration } from "webpack";
+import { Chunk, Configuration, Module } from "webpack";
 import commonConfig from "./webpack.common.config";
 import { merge } from "webpack-merge";
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
@@ -40,6 +40,26 @@ const prodConfig: Configuration = merge(commonConfig, {
         },
       }),
     ],
+    runtimeChunk: "single",
+    splitChunks: {
+      chunks: "all",
+      maxSize: Infinity,
+      minSize: 2000,
+      cacheGroups: {
+        node_modules: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "node_modules",
+          chunks: "initial",
+        },
+        async: {
+          test: /[\\/]node_modules[\\/]/,
+          chunks: "async",
+          name(module: Module, chunks: Array<Chunk>) {
+            return chunks.map((chunk: Chunk) => chunk.name).join("-");
+          },
+        },
+      },
+    },
   },
   module: {
     rules: [

@@ -86,7 +86,10 @@ const removeTodoEventHandler = async (event: Event) => {
 
   deleteButton!.dataset.id = id.toString();
 
-  const { Modal } = await import("bootstrap");
+  const { Modal } = await import(
+    /* webpackChunkName: "bootstrap" */
+    "bootstrap"
+  );
 
   const deleteTodoModal = Modal.getOrCreateInstance(
     document.getElementById("modal-delete-todo")!
@@ -101,7 +104,10 @@ const confirmRemoveEventHandler = async (event: Event) => {
   removeTodo(id!);
   renderTodos(getAllTodos());
 
-  const { Modal } = await import("bootstrap");
+  const { Modal } = await import(
+    /* webpackChunkName: "bootstrap" */
+    "bootstrap"
+  );
 
   const deleteTodoModal = Modal.getInstance(
     document.getElementById("modal-delete-todo")!
