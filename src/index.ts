@@ -80,11 +80,34 @@ const newTodoEventHandler = (event: Event) => {
   clearNewTodoInput();
 };
 
-const removeTodoEventHandler = (event: Event) => {
+const removeTodoEventHandler = async (event: Event) => {
+  const deleteButton = document.getElementById("modal-delete-button");
+  const id = getTodoId(event.target as HTMLElement);
+
+  deleteButton!.dataset.id = id.toString();
+
+  const { Modal } = await import("bootstrap");
+
+  const deleteTodoModal = Modal.getOrCreateInstance(
+    document.getElementById("modal-delete-todo")!
+  );
+
+  deleteTodoModal.show();
+};
+
+const confirmRemoveEventHandler = async (event: Event) => {
   const id = getTodoId(event.target as HTMLElement);
 
   removeTodo(id!);
   renderTodos(getAllTodos());
+
+  const { Modal } = await import("bootstrap");
+
+  const deleteTodoModal = Modal.getInstance(
+    document.getElementById("modal-delete-todo")!
+  );
+
+  deleteTodoModal!.hide();
 };
 
 const toggleTodoEventListener = (event: Event) => {
@@ -117,5 +140,9 @@ document.addEventListener("click", (event: Event) => {
 
   if ((event.target as HTMLElement).classList.contains("real-checkbox")) {
     toggleTodoEventListener(event);
+  }
+
+  if ((event.target as HTMLButtonElement).id === "modal-delete-button") {
+    confirmRemoveEventHandler(event);
   }
 });
