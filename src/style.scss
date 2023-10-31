@@ -1,13 +1,14 @@
-* {
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-}
-
-div.container {
+div.custom-container {
   display: flex;
   justify-content: center;
   align-items: center;
