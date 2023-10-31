@@ -37,7 +37,8 @@
   },
   "scripts": {
     "build": "NODE_OPTIONS=\"--import ./register-hooks.js ts-node/esm\" webpack --config ./webpack/webpack.prod.config.ts",
-    "dev": "NODE_OPTIONS=\"--import ./register-hooks.js ts-node/esm\" webpack serve --config ./webpack/webpack.dev.config.ts"
+    "dev": "NODE_OPTIONS=\"--import ./register-hooks.js ts-node/esm\" webpack serve --config ./webpack/webpack.dev.config.ts",
+    "bundle-analyzer": "NODE_OPTIONS=\"--import ./register-hooks.js ts-node/esm\" webpack --config ./webpack/webpack.analyze.config.ts"
   },
   "type": "module"
 }
