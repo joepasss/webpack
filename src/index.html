@@ -6,7 +6,7 @@
     <title>Simple Todo App</title>
   </head>
   <body>
-    <div class="container">
+    <div class="custom-container">
       <img
         class="header-image"
         src="../images/header-image.jpg"
@@ -16,6 +16,36 @@
       <div class="todolist-wrapper">
         <input class="new-todo" placeholder="Enter text here" autofocus />
         <ul class="todo-list"></ul>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modal-delete-todo">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p>삭제하시겠습니까?</p>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="modal-dismiss-button"
+              data-bs-dismiss="modal"
+              data-bs-target="#my-modal"
+              aria-label="Close"
+            >
+              아니요
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="modal-delete-button"
+            >
+              네
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>
