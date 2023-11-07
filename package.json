@@ -54,9 +54,11 @@
     "webpack-merge": "^5.9.0"
   },
   "scripts": {
-    "build": "NODE_OPTIONS=\"--import ./register-hooks.js\" NODE_ENV=production webpack --config ./webpack/webpack.prod.config.ts",
-    "dev": "NODE_OPTIONS=\"--import ./register-hooks.js\" NODE_ENV=dev webpack serve --config ./webpack/webpack.dev.config.ts",
-    "bundle-analyzer": "NODE_OPTIONS=\"--import ./register-hooks.js\" NODE_ENV=production webpack --config ./webpack/webpack.analyze.config.ts"
+    "lint": "eslint ./src/**.tsx",
+    "lint:fix": "eslint --fix ./src/**.tsx",
+    "build": "./scripts/build.sh",
+    "dev": "./scripts/dev.sh",
+    "bundle-analyzer": "./scripts/bundle-analyzer.sh"
   },
   "type": "module",
   "dependencies": {}
