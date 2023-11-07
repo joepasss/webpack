@@ -9,6 +9,7 @@
   "devDependencies": {
     "@types/bootstrap": "^5.2.8",
     "@types/node": "^20.7.0",
+    "@types/react-dom": "^18.2.14",
     "@types/webpack": "^5.28.3",
     "@types/webpack-bundle-analyzer": "^4.6.2",
     "@types/webpack-dev-server": "^4.7.2",
