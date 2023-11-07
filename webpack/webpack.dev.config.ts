@@ -20,17 +20,19 @@ const devConfig: Configuration = merge(commonConfig, {
     devMiddleware: {
       index: "index.html",
       writeToDisk: true,
+      publicPath: "/",
     },
     client: {
       overlay: true,
     },
     liveReload: true,
+    historyApiFallback: true,
   },
   module: {
     rules: [
       {
         test: /\.(scss|sass)$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
       },
     ],
   },

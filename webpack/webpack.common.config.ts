@@ -5,19 +5,23 @@ import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import { fileURLToPath } from "url";
 
 const commonConfig: Configuration = {
-  entry: "./src/index.ts",
+  entry: "./src/index.tsx",
   output: {
     path: path.resolve(fileURLToPath(import.meta.url), "../../dist"),
     filename: "main.js",
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js"],
+    extensions: [".ts", ".tsx", ".jsx", ".js"],
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: "ts-loader",
+        use: ["babel-loader", "ts-loader"],
+      },
+      {
+        test: /.jsx?$/,
+        loader: "babel-loader",
       },
       {
         test: /\.html$/,
