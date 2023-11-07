@@ -1,6 +1,3 @@
-const { default: path } = require("path");
-const { fileURLToPath } = require("url");
-
 module.exports = {
   env: {
     browser: true,
@@ -8,6 +5,11 @@ module.exports = {
     node: true,
   },
   extends: ["standard-with-typescript", "plugin:react/recommended"],
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
   overrides: [
     {
       env: {
@@ -22,8 +24,19 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
-    tsconfigRootDir: path.resolve(fileURLToPath(import.meta.url), "../"),
+    tsconfigRootDir: __dirname,
+    project: ["./tsconfig.json"],
   },
   plugins: ["react"],
-  rules: {},
+  ignorePatterns: ["register-hooks.js", "**/dist/*"],
+  rules: {
+    "@typescript-eslint/quotes": "off",
+    "@typescript-eslint/comma-dangle": "off",
+    "@typescript-eslint/comma-semi": "off",
+    "@typescript-eslint/semi": "off",
+
+    quotes: ["error", "double"],
+    semi: ["error", "always"],
+    "func-style": ["error", "expression"],
+  },
 };
