@@ -11,13 +11,17 @@ const commonConfig: Configuration = {
     filename: "main.js",
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js"],
+    extensions: [".ts", ".tsx", ".jsx", ".js"],
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: "ts-loader",
+        use: ["babel-loader", "ts-loader"],
+      },
+      {
+        test: /.jsx?$/,
+        loader: "babel-loader",
       },
       {
         test: /\.html$/,
