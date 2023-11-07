@@ -20,11 +20,13 @@ const devConfig: Configuration = merge(commonConfig, {
     devMiddleware: {
       index: "index.html",
       writeToDisk: true,
+      publicPath: "/",
     },
     client: {
       overlay: true,
     },
     liveReload: true,
+    historyApiFallback: true,
   },
   module: {
     rules: [
