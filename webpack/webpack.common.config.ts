@@ -5,7 +5,7 @@ import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import { fileURLToPath } from "url";
 
 const commonConfig: Configuration = {
-  entry: "./src/index.ts",
+  entry: "./src/index.tsx",
   output: {
     path: path.resolve(fileURLToPath(import.meta.url), "../../dist"),
     filename: "main.js",
