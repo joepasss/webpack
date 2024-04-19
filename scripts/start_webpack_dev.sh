@@ -1,4 +1,4 @@
 #!/bin/bash
 
 export NODE_OPTIONS="--import ./register-hooks.js"
-yarn webpack --config ./webpack/webpack.prod.config.ts
+yarn webpack serve --config ./webpack/webpack.dev.config.ts

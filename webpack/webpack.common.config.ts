@@ -1,53 +1,47 @@
 import path from "path";
-import { Configuration } from "webpack";
-import HtmlWebpackPlugin from "html-webpack-plugin";
-import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import { fileURLToPath } from "url";
+import { type Configuration } from "webpack";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import { resolveTsAliases } from "resolve-ts-aliases";
+import { CleanWebpackPlugin } from "clean-webpack-plugin";
 
-const commonConfig: Configuration = {
+const currentDir = path.resolve(fileURLToPath(import.meta.url), "../");
+
+const config: Configuration = {
   entry: "./src/index.tsx",
   output: {
-    path: path.resolve(fileURLToPath(import.meta.url), "../../dist"),
-    filename: "main.js",
+    path: path.resolve(currentDir, "../dist"),
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".jsx", ".js"],
+    extensions: [".tsx", ".ts", ".js"],
+    modules: [path.resolve(currentDir, "../src"), "node_modules"],
+    alias: resolveTsAliases(path.resolve(currentDir, "../tsconfig.json")),
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
+        exclude: /node_modules/,
         use: ["babel-loader", "ts-loader"],
       },
       {
-        test: /.jsx?$/,
-        loader: "babel-loader",
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: ["babel-loader"],
       },
       {
         test: /\.html$/,
-        loader: "html-loader",
-      },
-      {
-        test: /\.(png|jpg|svg)$/,
-        type: "asset",
-        parser: {
-          dataUrlCondition: {
-            maxSize: 10 * 1024,
-          },
-        },
-        generator: {
-          filename: "./images/[name][ext]",
-        },
+        use: ["html-loader"],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "src/index.html",
       filename: "index.html",
+      template: "src/index.html",
     }),
     new CleanWebpackPlugin(),
   ],
 };
 
-export default commonConfig;
+export default config;

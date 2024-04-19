@@ -1,22 +1,22 @@
-import { Configuration as WebpackConfiguration } from "webpack";
-import { Configuration as WebpackDevServerConfiguration } from "webpack-dev-server";
-import commonConfig from "./webpack.common.config";
+import { type Configuration as WebpackConfiguration } from "webpack";
+import { type Configuration as WebpackDevConfiguration } from "webpack-dev-server";
+import config from "./webpack.common.config";
 import { merge } from "webpack-merge";
 import path from "path";
 import { fileURLToPath } from "url";
 
 interface Configuration extends WebpackConfiguration {
-  devServer?: WebpackDevServerConfiguration;
+  devServer?: WebpackDevConfiguration;
 }
 
-const devConfig: Configuration = merge(commonConfig, {
+const devConfig: Configuration = merge(config, {
   mode: "development",
-  output: {
-    filename: "main.js",
-  },
+  devtool: "eval-source-map",
   devServer: {
     port: 9000,
-    static: path.resolve(fileURLToPath(import.meta.url), "../../dist"),
+    static: {
+      directory: path.resolve(fileURLToPath(import.meta.url), "../../dist"),
+    },
     devMiddleware: {
       index: "index.html",
       writeToDisk: true,
@@ -31,8 +31,12 @@ const devConfig: Configuration = merge(commonConfig, {
   module: {
     rules: [
       {
-        test: /\.(scss|sass)$/,
+        test: /\.scss$/,
         use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader", "postcss-loader"],
       },
     ],
   },

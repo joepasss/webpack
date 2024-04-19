@@ -3,16 +3,25 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",
-    "baseUrl": "./src",
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
     "outDir": "./dist",
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@styles/*": [
+        "src/styles/*"
+      ]
+    }
   },
-  "include": ["src/**/*", "src/declare.d.ts", ".eslintrc.cjs"],
+  "include": [
+    "src/**/*",
+    "src/declare.d.ts",
+    "eslint.config.mjs"
+  ],
   "ts-node": {
     "esm": true,
     "experimentalSpecifierResolution": "node"
