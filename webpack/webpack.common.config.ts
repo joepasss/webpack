@@ -3,6 +3,7 @@ import { fileURLToPath } from "url";
 import { type Configuration } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { resolveTsAliases } from "resolve-ts-aliases";
+import { CleanWebpackPlugin } from "clean-webpack-plugin";
 
 const currentDir = path.resolve(fileURLToPath(import.meta.url), "../");
 
@@ -39,6 +40,7 @@ const config: Configuration = {
       filename: "index.html",
       template: "src/index.html",
     }),
+    new CleanWebpackPlugin(),
   ],
 };
 
