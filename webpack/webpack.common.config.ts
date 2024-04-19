@@ -2,6 +2,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { type Configuration } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import { resolveTsAliases } from "resolve-ts-aliases";
 
 const currentDir = path.resolve(fileURLToPath(import.meta.url), "../");
 
@@ -13,6 +14,7 @@ const config: Configuration = {
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
     modules: [path.resolve(currentDir, "../src"), "node_modules"],
+    alias: resolveTsAliases(path.resolve(currentDir, "../tsconfig.json")),
   },
   module: {
     rules: [
