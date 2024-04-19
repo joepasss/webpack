@@ -28,6 +28,18 @@ const devConfig: Configuration = merge(config, {
     liveReload: true,
     historyApiFallback: true,
   },
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader", "postcss-loader"],
+      },
+    ],
+  },
 });
 
 export default devConfig;
